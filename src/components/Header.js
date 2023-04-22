@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const StyledHeader = styled.div`
     display: flex;
@@ -10,22 +10,29 @@ const StyledHeader = styled.div`
     justify-content: space-between;
     height: 70px;
     padding: 10px;
-    background: yellow;
+    background: #F9E2AF;
 `
 
 const StyledTitle = styled(Link)`
     font-size: 30px;
     box-sizing: border-box;
     text-decoration: none;
+    color: black;
+    &:hover{  
+        color : gray;
+    }
+`
+
+const StyledName = styled.div`
+    height: 35px;
 `
 
 const StyledInfo = styled(Link)`
     text-decoration: none;
-    padding: 5px;
-`
-
-const ButtonX = styled.div`
-
+    color: black;
+    &:hover{  
+        color : gray;
+    }
 `
 
 const SideBarWrap = styled.div`
@@ -34,7 +41,7 @@ const SideBarWrap = styled.div`
     border-radius: 15px 0 0 15px;
     background-color: #e7e4e1;
     height: 100%;
-    width: 80%;
+    width: 90%;
     right: -55%;
     top: 0;
     position: fixed;
@@ -47,7 +54,7 @@ const SideBarWrap = styled.div`
 
 const Header = () => {
     const [toggle, setToggle]=useState(false);
-    const info = [0,1,2,3,4];
+    const info = ["정희수","박현정","정상원","정유정","송하빈"];
 
     const handleClick = () => {
         setToggle(toggle => !toggle);
@@ -61,18 +68,19 @@ const Header = () => {
                 {
                     toggle &&
                     <SideBarWrap>
-                        <ButtonX onClick={handleClick}>
-                            X
-                        </ButtonX>
+                        <div onClick={handleClick}>
+                            <FontAwesomeIcon icon={faXmark} size="2x"/>
+                        </div>
+                        <br/>
                         {
                             info.map((v,i)=>{
                                 let url="info/"+i;
                                 return(
-                                    <div key={v}>
-                                    <StyledInfo to={url}>
-                                        {i}
-                                    </StyledInfo>
-                                    </div>
+                                    <StyledName key={v}>
+                                        <StyledInfo to={url}>
+                                            {info[i]}
+                                        </StyledInfo>
+                                    </StyledName>
                                 )
                             })
                         }

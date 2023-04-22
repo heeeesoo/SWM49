@@ -8,7 +8,6 @@ import info3 from "../data/3.json";
 import info4 from "../data/4.json";
 
 const StyledContainer = styled.div`
-    margin: 10px;
 `
 
 const StyledName = styled.div`
