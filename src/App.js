@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const Container = styled.div`
-  margin: -7px;
+  margin: -8px;
 `
 function App() {
   return (
