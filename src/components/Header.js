@@ -10,7 +10,7 @@ const StyledHeader = styled.div`
     justify-content: space-between;
     height: 70px;
     padding: 10px;
-    background: #F9E2AF;
+    background: #C9EEFF;
 `
 
 const StyledTitle = styled(Link)`
@@ -39,7 +39,7 @@ const SideBarWrap = styled.div`
     z-index: 5;
     padding: 12px;
     border-radius: 15px 0 0 15px;
-    background-color: #e7e4e1;
+    background-color: #97DEFF;
     height: 100%;
     width: 90%;
     right: -55%;
@@ -51,6 +51,12 @@ const SideBarWrap = styled.div`
         transition: 0.5s ease;
     }
 `;
+
+const StyledMenu = styled.div`
+    &:hover{  
+        color : gray;
+    }
+`
 
 const Header = () => {
     const [toggle, setToggle]=useState(false);
@@ -68,9 +74,9 @@ const Header = () => {
                 {
                     toggle &&
                     <SideBarWrap>
-                        <div onClick={handleClick}>
+                        <StyledMenu onClick={handleClick}>
                             <FontAwesomeIcon icon={faXmark} size="2x"/>
-                        </div>
+                        </StyledMenu>
                         <br/>
                         {
                             info.map((v,i)=>{
@@ -86,7 +92,9 @@ const Header = () => {
                         }
                     </SideBarWrap>
                 }
+                <StyledMenu>
                 <FontAwesomeIcon onClick={handleClick} icon={faBars} size="2x"/>
+                </StyledMenu>
         </StyledHeader>
     );
 };

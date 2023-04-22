@@ -22,6 +22,7 @@ const Info = () => {
             <StyledName>
                 {arr[Number(num)].name}
             </StyledName>
+            <hr/>
             <br/>
             {arr[Number(num)].text.split('\n').map((line,i) => {
                 return (
