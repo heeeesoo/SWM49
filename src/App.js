@@ -1,11 +1,14 @@
 import Header from "./components/Header";
+import styled from "styled-components";
+
+const Container = styled.div`
+  margin: -7px;
+`
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
+    <Container>
       <Header/>
-    </div>
+    </Container>
   );
 }
 
